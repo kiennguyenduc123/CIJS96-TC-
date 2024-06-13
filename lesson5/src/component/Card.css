@@ -1,0 +1,57 @@
+.card{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    padding: 10px 34px 10px 34px;
+    margin: 6px;
+    transition: all 0.3s ease;
+}
+
+.card img{
+    width: 100px;
+    max-height: 205px;
+    object-fit: contain;
+}
+.card .pokemon_id{
+    color: #666;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+.card .pokemon_name{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0 5px 0 ;
+}
+
+.pokemon_class_wrapper{
+    display: flex;
+    gap: 5px;
+}
+.pokemon_class_wrapper span{
+    color: black;
+    background-color: #27ae60;
+    padding: 0px 20px;
+    border-radius: 20px; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, .2);
+}
+
+.Grass {
+    background-color: green !important;
+    color: black;
+}
+
+.Possion{
+    background-color: #773C86 !important;
+    color: #fff !important;
+}
+
+.Fire {
+    /* background-color: orangered !important; */
+    background: linear-gradient(180deg, rgba(28,19,198,1) 0%, rgba(255,255,255,1) 45%, rgba(222,0,255,1) 100%);
+    color: white !important;
+}

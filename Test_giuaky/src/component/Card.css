@@ -1,0 +1,107 @@
+ html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #192026;
+}
+.Card {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    width: 1200px;
+    height: 50px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar_name {
+    width: 1000px;
+    height: 40px;
+}
+
+.navbar_name span {
+    width: 400px;
+    position: relative;
+    left:30px;
+    margin-left: 30px;
+}
+
+.navbar_name .item1 {
+    font-size: 24px;
+    color:#fff ;
+}
+
+
+.navbar_name .item2 {
+    font-size: 18px;
+    margin-left: 230px;
+    color: #868686;
+}
+
+.navbar_input {
+    margin-top: 2px;
+}
+
+.navbar_input input {
+    width: 232px;
+    height: 26px ;
+    border: 2px solid #868686 ;
+    border-radius: 10px;
+    background-color:rgba(134, 134, 134, 1)
+}
+
+.Content {
+    width: 600px;
+}
+
+.Content h1 {
+    margin-left: 60px;
+    color: #FFFFFF;
+}
+
+.Content p {
+    font-size: 18px;
+    margin: 24px 0 20px 60px;
+    color: #868686;
+}
+
+.Image img {
+    width: 1140px;
+    height: 300px;
+    position: absolute;
+    left: 64px;
+    border-radius: 10px;
+   
+}
+
+.overlay {
+   position: absolute;
+   width: 900px;
+   height: 50px;
+   top: 260px;
+   left: 50px; 
+}
+
+
+.overlay h1 {
+    color: #FFFFFF;
+}
+.overlay p {
+    width: 450px;
+    line-height: ;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.img {
+    position: absolute;
+    top: 500px;
+    left: 64px;
+}
+
+.img h1 {
+    color: #FFFFFF;
+}

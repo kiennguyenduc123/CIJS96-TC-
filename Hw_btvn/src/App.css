@@ -1,0 +1,39 @@
+.lightTree {
+  position: relative;
+  margin: auto;
+  width: 300px;
+  height: 800px;
+  border-radius: 18px;
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  margin-top: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.lightTree .item {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.green {
+  background-color: green;
+}
+
+.lightTree button {
+  position: absolute;
+  top: 50%;
+  right: -50px;
+}

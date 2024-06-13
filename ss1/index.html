@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div className="container">
+        <button type="submit" className="btn" onClick={openPopuu}>Submit</button>
+        <div className="popuu">
+            <img src="./tick.png"/>
+            <h2>Thank you</h2>
+            <p>Your details has been successfully submit. Thank!!</p>
+            <button type="button" onClick={closePopuu}>OK</button>
+        </div>
+    </div>
+
+    <script src="index.js" type="module">
+        let poppuu = document.getElementById("popuu");
+
+        const openPopuu = () => {
+            poppuu.classList.add("open-popuu");
+        }
+        const closePopuu = () => {
+         poppuu.classList.remove("open-popuu")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+// từ dữ liệu để xu ly giao diện
+// Khi nó thay đổi giá trị thì nó sẽ đọc lại và cập nhập lại giao diện
+// Khai báo
+//React hooks là: Khi thay đổi giá trị    
+// States: 
+
+  //age là giá trị hiện tại
+  //setAge là để cập nhật lại giá trị (lấy giá trị mới so sánh vs giá trị mới)
+  // const [age, setAge] = useState(10);
+  // const handleClick = () => {
+  //   setAge(age + 1);
+  // }
+  // const [person , setPerson] = useState({name: "Mindx", age: 10})
+  // const increaAge = () => {
+  //       setPerson({
+  //         ...person,
+  //         age: person.age + 1
+  //       })
+  // }
+  // return (
+  //   <>
+  //     <div className='cijt96'>
+  //       <h1>{props.message} MindX, Age: <span className='Showage'>{age}</span></h1>
+  //       <button onClick={increaAge}>Increa</button>
+  //       <hr />  
+  //     </div>
+    //</>
+  //)
