@@ -1,0 +1,33 @@
+.product_lists {
+    max-width: 800px;
+    
+}
+
+.categorys {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    top: 460px;
+    left: 20px;
+}
+
+.productss {
+    display: flex;
+    position: relative;
+    top: 480px;
+}
+.products-a {
+    width: calc(50% - 10px); 
+}
+
+.products-details {
+    text-align: center;
+}
+
+.products-a img {
+    margin-top:-10px;
+    width: 330px;
+    height: 460px;
+    object-fit: cover;
+    padding: 10px;
+}

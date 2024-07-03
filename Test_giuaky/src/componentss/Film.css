@@ -3,7 +3,7 @@
     width: 194px;
     height: 200px;
     position: relative;
-    top: 400px;
+    top: 660px;
     left: 60px;
     z-index: 0;
     background: linear-gradient(0deg, rgba(29,29,29,0.97) 5%, rgba(250,239,239,0) 47%);
@@ -14,7 +14,7 @@
     height: 204px;
     border-radius: 12px;
     background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, #0F1E29 100%);
-    z-index: 99;
+    z-index: 999;
 }
 
 

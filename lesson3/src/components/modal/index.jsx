@@ -1,11 +1,19 @@
 import React from 'react';
 import './styles.css';
+// import { useContext } from 'react';
+// import {useParams} from 'react-router-dom'
+// import { PokemonContext } from '../../App';
 
 const Modal = (props) => {
     // console.log(props.data)
-
-
-
+    // const params = useParams();
+    // const pokemonId = params.id;
+    // const store = useContext(PokemonContext);
+    // const crrPokemon = store.pokemons.find(item => {
+    //     const crrid = item.id.split('#')[1];
+    //     return crrid == pokemonId
+    // })
+    // console.log(crr)
     return (
         <div className="modal">
             <div className="content">
