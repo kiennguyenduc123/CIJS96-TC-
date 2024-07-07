@@ -1,7 +1,7 @@
 import './Navbarjs.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStore,faBagShopping,faCartShopping, faCircleUser} from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
 const Navbarjs = (props) => {
 
     const { handleSearchChange } = props;
@@ -12,7 +12,7 @@ const Navbarjs = (props) => {
                 <img src="./001.png" className='img' />
                 <div className='Navbar_name'>
                     <ul>
-                        <li className='color_li'>Home</li>
+                        <Link to= "/" style={{textDecoration: "none"}}><li className='color_li'>Home</li></Link>
                         <li>Đồ Nam</li>
                         <li>Đồ Nữ</li>
                         <li>Đồ Bé Trai</li>

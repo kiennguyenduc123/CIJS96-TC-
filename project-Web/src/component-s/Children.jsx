@@ -5,27 +5,37 @@ import { faComment,faLocationDot,faPhone,faEnvelope} from '@fortawesome/free-sol
 import {useState} from 'react'
 import ChildSweater from './ChildSweater';
 import ChildHome from './ChildHome';
-
+import ProductModal from '../Modal/ProductModal';
 import { Link } from 'react-router-dom';
 const Children = () => {
 
     const productMen = [
-        {image:"./017.png",name: "Áo Len Bé Gái",price: "499.000"},
-        {image:"./018.png" ,name: "Áo Len Bé Gái",price: "299.000"},
-        {image:"./019.png" ,name: "Áo Len Bé Gái Đẹp",price: "399.000"},
-        {image:"./020.png" ,name: "Áo Len Bé Gái In",price: "299.000"},
+        {image:"./017.png",name: "Áo Len Bé Gái",price: "499.000", description: "Áo len cho bé gái với thiết kế đơn giản nhưng thanh lịch, phù hợp để bé mặc vào mùa đông. Giá cả hợp lý và chất liệu êm ái."},
+        {image:"./018.png" ,name: "Áo Balo Bé Gái Siêu Mát",price: "299.000", description: "Áo Balo Bé Gái Siêu Mát là sản phẩm thời trang cho bé gái, với chất liệu vải siêu mát và thiết kế thoải mái, phù hợp cho mọi hoạt động hàng ngày."},
+        {image:"./019.png" ,name: "Áo Len Bé Gái Đẹp",price: "399.000", description: "Áo len bé gái với hoa văn đẹp mắt, tạo điểm nhấn cho trang phục. Phù hợp cho bé mặc đi chơi hoặc đi học."},
+        {image:"./020.png" ,name: "Áo Len Bé Gái In",price: "299.000", description: "Áo len bé gái in hình với các họa tiết dễ thương, mang lại sự nổi bật và cá tính cho bé."},
       ]
 
     const productStyle = [
-        {image:"./021.png" ,name: "Bộ Shorts Bé Gái ",price: "699.000"},
-        {image:"./022.png" ,name: "Bộ TOLE Lửng Bé Gái",price: "199.000"},
-        {image:"./023.png" ,name: "Bộ Thun Lửng Bé Gái",price: "599.000"},
-        {image:"./025.png" ,name: "Bộ Shorts Karty Bé Gái",price: "399.000"},
+        {image:"./021.png" ,name: "Bộ Shorts Bé Gái ",price: "699.000" ,description: "Bộ shorts cho bé gái với chất liệu nhẹ và thoáng mát, phù hợp cho các hoạt động ngoài trời. Thiết kế thời trang và dễ phối đồ."},
+        {image:"./022.png" ,name: "Bộ TOLE Lửng Bé Gái",price: "199.000", description: "Bộ TOLE lửng cho bé gái với màu sắc tươi sáng và thiết kế năng động. Chất liệu vải mềm mại, thoải mái cho bé trong mùa hè."},
+        {image:"./023.png" ,name: "Bộ Thun Lửng Bé Gái",price: "599.000" ,description: "Bộ thun lửng bé gái đơn giản nhưng trẻ trung, thích hợp cho bé mặc ở nhà hoặc khi đi dạo phố cùng gia đình."},
+        {image:"./025.png" ,name: "Bộ Shorts Karty Bé Gái",price: "399.000", description: " Bộ shorts Karty bé gái với kiểu dáng thời trang và màu sắc bắt mắt. Phối cùng áo thun sẽ tạo nên set đồ dễ thương và năng động cho bé."},
     ]
 
     const [search,setSearch] = useState('');
     const  handleSearchChange = (e) => {
         setSearch(e.target.value);
+    }
+
+    const [selectedProduct, setSelectProduct] = useState(null);
+
+    const handleClickProduct = (product) => {
+      setSelectProduct(product);
+    }
+  
+    const handleClosedModal = () => {
+      setSelectProduct(null);
     }
 
 
@@ -40,15 +50,15 @@ const Children = () => {
               <FontAwesomeIcon icon={faComment} className='icon_chat'  />
               <p className='support'>Hỗ trợ</p>
             </button>
-                <div className="product-custom-men">
-                <ChildSweater products={productMen} search = {search} />
+                <div className="product-custom-women">
+                <ChildSweater products={productMen} search = {search} onProductClick = {handleClickProduct} />
                 </div>
-            <div className="product-customs">
-              <ChildHome products={ productStyle} search = {search} />
+            <div className="product-customs-women">
+              <ChildHome products={ productStyle} search = {search} onProductClick = {handleClickProduct} />
             </div>
           </div>
     
-          <div className='contents'>
+          <div className='contentsj'>
           <h1 className='content_a'><Link to="/seemore" target='_blank' style={{textDecoration: "none", color: "black",opacity: "90%"}}>XEM THÊM</Link></h1>
               <div className='content-main'>
                 <div className='content-a'>
@@ -64,8 +74,8 @@ const Children = () => {
                   <h1>ĐƯỜNG DẪN</h1>
                   <ul>
                     <li><Link to="/" style={{textDecoration: "none", color:"white"}}>Trang chủ</Link></li>
-                    <li>Về chúng tôi</li>
-                    <li>Thông tin liên hệ</li>
+                    <li><Link to="/introduce" target='_blank' style={{textDecoration: "none" , color: "white"}}>Về Chúng Tôi</Link></li>
+                    <li><Link to="/contactinfor" target='_blank' style={{textDecoration: "none" , color: "white"}}>Thông tin liên hệ</Link></li>
                   </ul>
                 </div>
     
@@ -106,6 +116,9 @@ const Children = () => {
                 </div>
           </div>
             
+          {
+            selectedProduct && <ProductModal product ={selectedProduct} onClose = {handleClosedModal} />
+          }
         </>
       )
     }

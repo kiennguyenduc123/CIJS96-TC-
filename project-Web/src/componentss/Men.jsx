@@ -5,26 +5,37 @@ import {useState} from 'react'
 import MenList from './MenList';
 import MenHome from './MenHome'
 import Navbarss from './Navbarss';
+import ProductModal from '../Modal/ProductModal';
 import { Link } from 'react-router-dom';
 const Men = () => {
 
     const productMen = [
-        {image:"./image 29.png",name: "Áo Nam Tay Ngắn",price: "499.000"},
-        {image:"./image 27.png" ,name: "Áo Len Lông Cừu Úc",price: "299.000"},
-        {image:"./image 28.png" ,name: "Áo Len Nam Gile",price: "399.000"},
-        {image:"./image 26.png" ,name: "Áo Len Nam",price: "299.000"},
+        {image:"./image 29.png",name: "Áo Nam Tay Ngắn",price: "499.000",description: "Áo nam tay ngắn, phong cách năng động và trẻ trung, phù hợp cho mọi hoàn cảnh."},
+        {image:"./image 27.png" ,name: "Áo Len Lông Cừu Úc",price: "299.000",description: "Áo len nam làm từ lông cừu Úc, mang đến sự ấm áp và thoải mái, phù hợp cho mùa đông."},
+        {image:"./image 28.png" ,name: "Áo Len Nam Gile",price: "399.000",description: "Áo len nam kiểu gile, thời trang và tiện lợi, là lựa chọn hoàn hảo cho những ngày se lạnh."},
+        {image:"./image 26.png" ,name: "Áo Len Nam",price: "299.000",description: "Áo len nam đơn giản nhưng không kém phần lịch lãm, phù hợp cho mọi dịp."},
       ]
 
     const productStyle = [
-        {image:"./013.png" ,name: "Bộ Áo Thun Nam ",price: "699.000"},
-        {image:"./014.png" ,name: "Bộ Đồ Mặc Nhà Siêu Mát",price: "199.000"},
-        {image:"./015.png" ,name: "Bộ Quần Hoạ Tiết",price: "599.000"},
-        {image:"./016.png" ,name: "Bộ Mặc Nhà Phong Cách",price: "399.000"},
+        {image:"./013.png" ,name: "Bộ Áo Thun Nam ",price: "699.000",description: " Bộ đồ áo thun nam thời trang và dễ phối đồ, phù hợp cho các hoạt động ngoài trời và hàng ngày."},
+        {image:"./014.png" ,name: "Bộ Đồ Mặc Nhà Siêu Mát",price: "199.000",description: "Bộ đồ mặc nhà nam với chất liệu mát mẻ, mang đến sự thoải mái và dễ chịu trong mọi hoàn cảnh."},
+        {image:"./015.png" ,name: "Bộ Quần Hoạ Tiết",price: "599.000",description: " Bộ quần nam hoạ tiết sành điệu, phong cách và thu hút ánh nhìn."},
+        {image:"./016.png" ,name: "Bộ Mặc Nhà Phong Cách",price: "399.000",description: "Bộ đồ mặc nhà nam phong cách với thiết kế hiện đại và đường nét tinh tế, thích hợp cho những ai yêu thích sự sang trọng và thoải mái."},
     ]
 
     const [search,setSearch] = useState('');
     const  handleSearchChange = (e) => {
         setSearch(e.target.value);
+    }
+
+    const [selectedProduct, setSelectProduct] = useState(null);
+
+    const handleClickProduct = (product) => {
+        setSelectProduct(product);
+    }
+
+    const handleClosedModal = () => {
+        setSelectProduct(null);
     }
 
 
@@ -41,14 +52,14 @@ const Men = () => {
               <p className='support'>Hỗ trợ</p>
             </button>
                 <div className="product-custom-men">
-                <MenList products={productMen} search = {search} />
+                <MenList products={productMen} search = {search} onProductClick = {handleClickProduct}/>
                 </div>
             <div className="product-customs">
-              <MenHome products={ productStyle} search = {search} />
+              <MenHome products={ productStyle} search = {search} onProductClick = {handleClickProduct} />
             </div>
           </div>
     
-          <div className='contents'>
+          <div className='contentsv'>
           <h1 className='content_a'><Link to="/seemore" target='_blank' style={{textDecoration: "none", color: "black",opacity: "90%"}}>XEM THÊM</Link></h1>
 
               <div className='content-main'>
@@ -65,8 +76,8 @@ const Men = () => {
                   <h1>ĐƯỜNG DẪN</h1>
                   <ul>
                     <li><Link to="/" style={{textDecoration: "none", color:"white"}}>Trang chủ</Link></li>
-                    <li>Về chúng tôi</li>
-                    <li>Thông tin liên hệ</li>
+                    <li><Link to="/introduce" target='_blank' style={{textDecoration: "none" , color: "white"}}>Về Chúng Tôi</Link></li>
+                    <li><Link to="/contactinfor" target='_blank' style={{textDecoration: "none" , color: "white"}}>Thông tin liên hệ</Link></li>
                   </ul>
                 </div>
     
@@ -107,6 +118,9 @@ const Men = () => {
                 </div>
           </div>
 
+          {
+            selectedProduct && <ProductModal product ={selectedProduct} onClose = {handleClosedModal} />
+          }
         </>
       )
     }

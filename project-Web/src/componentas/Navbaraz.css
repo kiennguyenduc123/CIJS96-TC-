@@ -111,6 +111,20 @@
     height: 360px;
 }
 
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 8px;
+    min-height: 8px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -4px;
+    right: 20px;
+}
+
 
 .user-icon-container {
     position: relative;

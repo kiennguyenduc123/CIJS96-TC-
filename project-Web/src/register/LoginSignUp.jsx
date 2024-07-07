@@ -88,12 +88,12 @@ const handleRegister = (event) => {
                     <form className='inputs' onSubmit={handleRegister}>
                         <div className='input'>
                             <FontAwesomeIcon icon={faCircleUser} className='icon' />
-                            <input type="text" placeholder='Name' />
+                            <input type="text" placeholder='Name' name="username" />
                         </div>
 
                         <div className='input'>
                             <FontAwesomeIcon icon={faEnvelope} className='icon' />
-                            <input type="email" placeholder='Email' />
+                            <input type="email" placeholder='Email' name="email" />
                         </div>
 
 
@@ -102,6 +102,7 @@ const handleRegister = (event) => {
                             <input
                                 type={isPasswordVisible ? 'text' : 'password'}
                                 placeholder='Password'
+                                name="password"
                             />
                             <FontAwesomeIcon
                                 icon={isPasswordVisible ? faEyeSlash : faEye}

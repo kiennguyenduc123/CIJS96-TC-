@@ -24,18 +24,18 @@
     margin-bottom: 10px;
   }
   
-  .product-custom {
+  .product-custom-women {
     width: 100%;
     height: auto;
     position:absolute;
-    top: 10px;
+    top: 640px;
   }
 
-  .product-customs {
+  .product-customs-women{
     width: 100%;
     height: auto;
     position:absolute;
-    top: 580px;
+    top: 660px;
   }
   
   .chat_support {
@@ -55,10 +55,10 @@
     color: white;
   }
   
-  .contents {
+  .contentsj {
     width: 100%;
     position: absolute;
-    top: 1620px;
+    top: 1820px;
   }
   .content_a {
     display: flex;

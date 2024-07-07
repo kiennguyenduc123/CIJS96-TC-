@@ -6,20 +6,21 @@ import {useState} from 'react'
 import MenSweater from './MenSweater.jsx';
 import MenHome from './MenHome.jsx';
 import { Link } from 'react-router-dom';
+import ProductModal from '../Modal/ProductModal.jsx';
 const ChildrenMen = () => {
 
     const productMen = [
-        {image:"./027.png",name: "Áo Len Bé Trai Cổ 3 Phân",price: "499.000"},
-        {image:"./028.png" ,name: "Áo Len Bé Trai",price: "299.000"},
-        {image:"./029.png" ,name: "Áo Len Bé Trai Đẹp",price: "399.000"},
-        {image:"./030.png" ,name: "Áo Len Bé Trai GiLe  ",price: "299.000"},
+        {image:"./027.png",name: "Áo Len Bé Trai Cổ 3 Phân",price: "499.000",description: " Áo len bé trai có cổ 3 phân thiết kế độc đáo và sang trọng, phù hợp cho các bé trong mùa đông."},
+        {image:"./028.png" ,name: "Áo Len Bé Trai",price: "299.000",description: " Áo len bé trai đơn giản nhưng không kém phần đáng yêu, là lựa chọn hoàn hảo cho mọi dịp."},
+        {image:"./029.png" ,name: "Áo Len Bé Trai Đẹp",price: "399.000",description: " Áo len bé trai với thiết kế đẹp mắt, chất liệu mềm mại và giá cả phải chăng."},
+        {image:"./030.png" ,name: "Áo Len Bé Trai GiLe  ",price: "299.000", description: " Áo len bé trai kiểu gile, mang lại sự thoải mái và ấm áp cho bé trong những ngày se lạnh."},
       ]
 
     const productStyle = [
-        {image:"./031.png" ,name: "Bộ Shorts Kate Bé Trai ",price: "699.000"},
-        {image:"./032.png" ,name: "Bộ TOLE Lửng Bé Trai",price: "199.000"},
-        {image:"./033.png" ,name: "Bộ Thun Lửng Bé Gái",price: "599.000"},
-        {image:"./035.png" ,name: "Bộ Shorts Karty Bé Trai",price: "399.000"},
+        {image:"./031.png" ,name: "Bộ Shorts Kate Bé Trai ",price: "699.000",description: "Bộ shorts Kate bé trai với thiết kế hiện đại, phong cách trẻ trung và năng động."},
+        {image:"./032.png" ,name: "Bộ TOLE Lửng Bé Trai",price: "199.000",description: " Bộ thời trang TOLE lửng bé trai, mang đến sự thoải mái và tự do cho bé trong mọi hoạt động."},
+        {image:"./033.png" ,name: "Bộ Thun Lửng Bé Gái",price: "599.000",description: "Bộ thun lửng bé gái với chất liệu mềm mại và thiết kế đáng yêu, là sự lựa chọn hoàn hảo cho bé gái."},
+        {image:"./035.png" ,name: "Bộ Shorts Karty Bé Trai",price: "399.000",description: "Bộ shorts Karty bé trai với kiểu dáng thời trang và đường nét tinh tế, phù hợp cho bé trong mọi dịp."},
     ]
 
     const [search,setSearch] = useState('');
@@ -28,26 +29,37 @@ const ChildrenMen = () => {
     }
 
 
+    const [selectedProduct, setSelectProduct] = useState(null);
+
+    const handleClickProduct = (product) => {
+        setSelectProduct(product);
+    }
+
+    const handleClosedModal = () => {
+        setSelectProduct(null);
+    }
+
+
     return (
         <>
           <div className='wrapper'>
             <Navbaraz handleSearchChange = {handleSearchChange} />
           </div>
-          <div className='product_women'>
+          <div className='product_men'>
             <h1 className='h-pros'>Danh sách sản phẩm</h1>
             <button className='chat_support'>
               <FontAwesomeIcon icon={faComment} className='icon_chat'  />
               <p className='support'>Hỗ trợ</p>
             </button>
             <div className="product-custom-men">
-                <MenSweater products={productMen} search = {search} />
+                <MenSweater products={productMen} search = {search} onProductClick = {handleClickProduct} />
             </div>
-            <div className="product-customs">
-              <MenHome products={ productStyle} search = {search} />
+            <div className="product-customs-mens">
+              <MenHome products={ productStyle} search = {search} onProductClick = {handleClickProduct} />
             </div>
           </div>
     
-          <div className='contents'>
+          <div className='contentcs'>
           <h1 className='content_a'><Link to="/seemore" target='_blank' style={{textDecoration: "none", color: "black",opacity: "90%"}}>XEM THÊM</Link></h1>
               <div className='content-main'>
                 <div className='content-a'>
@@ -63,8 +75,8 @@ const ChildrenMen = () => {
                   <h1>ĐƯỜNG DẪN</h1>
                   <ul>
                     <li><Link to="/" style={{textDecoration: "none", color:"white"}}>Trang chủ</Link></li>
-                    <li>Về chúng tôi</li>
-                    <li>Thông tin liên hệ</li>
+                    <li><Link to="/introduce" target='_blank' style={{textDecoration: "none" , color: "white"}}>Về Chúng Tôi</Link></li>
+                    <li><Link to="/contactinfor" target='_blank' style={{textDecoration: "none" , color: "white"}}>Thông tin liên hệ</Link></li>
                   </ul>
                 </div>
     
@@ -105,6 +117,9 @@ const ChildrenMen = () => {
                 </div>
           </div>
             
+          {
+            selectedProduct && <ProductModal product ={selectedProduct} onClose = {handleClosedModal} />
+          }
         </>
       )
     }

@@ -1,20 +1,20 @@
 .product_lists {
     max-width: 800px;
-    
+    height: 200px;
 }
 
-.categorys {
+.categorysb {
     font-size: 24px;
     font-weight: bold;
     position: relative;
-    top: 460px;
+    top: 480px;
     left: 20px;
 }
 
-.productss {
+.productssz {
     display: flex;
     position: relative;
-    top: 480px;
+    top: 500px;
 }
 .products-a {
     width: calc(50% - 10px); 
@@ -31,3 +31,27 @@
     object-fit: cover;
     padding: 10px;
 }
+
+
+.add-to-modal-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    left: 48px;
+    transform: translateX(-50%);
+}
+
+.add-to-modal-btn:hover {
+    background-color: red;
+
+}
+
+

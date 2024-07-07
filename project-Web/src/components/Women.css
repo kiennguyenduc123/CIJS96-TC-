@@ -21,18 +21,18 @@
     margin-bottom: 10px;
   }
   
-  .product-custom {
+  .product-customzx {
     width: 100%;
     height: auto;
-    position:absolute;
-    top: 10px;
+    position:relative;
+    top: -420px;
   }
 
-  .product-customs {
+  .product-customss {
     width: 100%;
     height: auto;
     position:absolute;
-    top: 580px;
+    top: 660px;
   }
   
   .chat_support {
@@ -52,10 +52,10 @@
     color: white;
   }
   
-  .contentc {
+  .contentcd {
     width: 100%;
     position: relative;
-    /* top: 760px; */
+    top: 1160px;
   }
   .content_a {
     display: flex;

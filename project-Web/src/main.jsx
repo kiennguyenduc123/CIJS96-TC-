@@ -13,10 +13,12 @@ import Contactinfo from './contact/contactinfo.jsx'
 import Google from './addgooglemap/google.jsx'
 import LoginSignUp from './register/LoginSignUp.jsx'
 import LoginSignIn from './register/LoginSignIn.jsx'
-
+import Cart from './Cart/Cart.jsx'
+import { StoreContextProvider } from './context/StoreContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <Routes>
+   <StoreContextProvider>
+   <Routes>
       <Route path="" element={<App />} />
       <Route path='/men' element = {<Men />}/>
       <Route path="/women" element={<Women />}/>
@@ -26,9 +28,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/introduce' element = {<Introduce />} />
       <Route path='/contactinfor' element = {<Contactinfo />} />
       <Route path='/google.html' element = {<Google />}/>
-      <Route path='/Login' element = {<LoginSignIn/>}/>
-      <Route path='Register' element = {<LoginSignUp />}/>
+      <Route path='/login' element = {<LoginSignIn/>}/>
+      <Route path='register' element = {<LoginSignUp />}/>
+      <Route path='/cart' element={<Cart />}/>
     </Routes>
+    </StoreContextProvider>
   </BrowserRouter>
 )
 

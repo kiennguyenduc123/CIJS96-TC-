@@ -39,7 +39,11 @@ const LoginSignIn = () => {
         
         if (user) {
             localStorage.setItem('user', JSON.stringify(user));
-            navigate('/');
+            setIsLoggedIn(true)
+            alert('Của bạn đã đăng nhập thành công xin mời bạn đến với trang chủ');
+            setInterval(() => {
+                navigate('/');
+            }, 2000);
         } else {
             alert('Email hoặc mật khẩu không đúng');
         }
@@ -70,7 +74,7 @@ const LoginSignIn = () => {
                     <form className='inputs' onSubmit = {onFinish}>
                         <div className='input'>
                             <FontAwesomeIcon icon={faEnvelope} className='icon' />
-                            <input type="email" placeholder='Email' />
+                            <input type="email" placeholder='Email' name="email" />
                         </div>
 
 
@@ -79,6 +83,8 @@ const LoginSignIn = () => {
                             <input
                                 type={isPasswordVisible ? 'text' : 'password'}
                                 placeholder='Password'
+                                name = "password"
+
                             />
                             <FontAwesomeIcon
                                 icon={isPasswordVisible ? faEyeSlash : faEye}

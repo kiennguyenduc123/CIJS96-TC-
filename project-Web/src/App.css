@@ -8,14 +8,15 @@ body, html, #root {
   height:420px;
 }
 
-.product {
+.productg {
     width: 100%;
-    height: 100%;
+    height: 500px;
 }
 
-.product .h_pro {
+.product .hs_pros {
+  position: absolute;
+  top: 12px;
   padding: 12px;
-  position: relative;
 }
 
 .product .title {
@@ -33,18 +34,18 @@ body, html, #root {
   margin-bottom: 10px;
 }
 
-.product-content {
+.product-contenth {
   width: 100%;
-  height: auto;
-  position:absolute;
-  top:620px;
+  height: 200px;
+  position:relative;
+  top:200px;
 }
 
-.product-contents {
+.product-contentsh {
   width: 100%;
-  height: auto;
+  height: 200px;
   position:absolute;
-  top: 580px;
+  top: 680px;
 }
 
 .product-contentss {
@@ -72,10 +73,10 @@ body, html, #root {
   color: white;
 }
 
-.contentc {
+.contentcz {
   width: 100%;
   position: relative;
-  top: 1280px;
+  top: 1520px;
   
 }
 .content_a {

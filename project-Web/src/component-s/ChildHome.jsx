@@ -2,7 +2,7 @@ import './ChildHome.css';
 import React from 'react';
 
 const ChildHome = (props) => {
-    const { products,search } = props;
+    const { products,search,onProductClick  } = props;
 
     const filteredProductsWomen = products.filter((product) => 
            product.name.toLowerCase().includes(search.toLowerCase())
@@ -14,11 +14,14 @@ const ChildHome = (props) => {
             <div className="productsz">
                 {filteredProductsWomen.length > 0 ? (
                     filteredProductsWomen.map((product, index) => (
-                        <div className="products_ax" key={index}>
+                        <div className="products_ax" key={index} onClick={() => onProductClick(product)}>
                             <img src={product.image} alt={product.name} />
                             <div className="productsz-detail">
                                 <h3>{product.name}</h3>
                                 <p>{product.price}</p>
+                                <button className="add-to-cart-btnsz" >
+                                    Add modal
+                                </button>
                             </div>
                         </div>
                     ))

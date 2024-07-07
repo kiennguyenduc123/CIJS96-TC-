@@ -45,7 +45,7 @@ const Navbars = (props) => {
                     <div className="user-icon-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <FontAwesomeIcon icon={faCircleUser} className='icon' />
                         {isHovered && (
-                            <div className="hover-options">
+                            <div className="hover-optionss">
                                <p><Link to="/Register" target='_blank'className='hover_pro'>Đăng nhập</Link></p>
                                <p><Link to="/Login" target='_blank'className='hover_pro'>Đăng ký</Link></p>
                             </div>
@@ -53,7 +53,10 @@ const Navbars = (props) => {
 
                     </div>
                     <Link to = "/google.html" target='_blank' style={{textDecoration: "none", color: "white"}}> <FontAwesomeIcon icon={faStore} className='icon' /></Link>
-                    <FontAwesomeIcon icon={faBagShopping} className='icon' />
+                    <div className='navbar-search-icon'>
+                        <FontAwesomeIcon icon={faBagShopping} className='icon' />
+                        <div className='dot'></div>
+                    </div>
                     <FontAwesomeIcon icon={faCartShopping} className='icon' />               
                     </div>             
                 </div>

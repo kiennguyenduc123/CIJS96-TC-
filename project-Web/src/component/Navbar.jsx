@@ -19,11 +19,11 @@ const Navbar = (props) => {
 
     return (
            <div className='Web'> 
-                 <div className='Navbar'>
-                <img src="./001.png" className='img' />
+                <div className='Navbar'>
+                    <img src="./001.png" className='img' />
                 <div className='Navbar_name'>
                     <ul>
-                        <li className='color_li'>Home</li>
+                        <li className='color_li'><Link style={{textDecoration: "none"}}>Home</Link></li>
                         <li><Link to="/men" target='_blank' style={{textDecoration: "none", color: "black"}}>Đồ Nam</Link></li>
                         <li><Link to="/women" target='_blank' style={{textDecoration: "none", color: "black"}}>Đồ Nữ</Link></li>
                         <li><Link to="/childrenmen" target='_blank' style={{textDecoration: "none", color: "black"}}>Đồ Bé Trai</Link></li>
@@ -51,13 +51,20 @@ const Navbar = (props) => {
                         )}
                     </div>
                     <Link to = "/google.html" target='_blank' style={{textDecoration: "none", color: "white"}}> <FontAwesomeIcon icon={faStore} className='icon' /></Link>
-                    <FontAwesomeIcon icon={faBagShopping} className='icon' />
-                    <FontAwesomeIcon icon={faCartShopping} className='icon' />               
+                    
+                    <div className='navbar-search-icon'>
+                        <Link to="/cart" target='_blank' style={{textDecoration: "none"}}><FontAwesomeIcon icon={faBagShopping} className='icon' /></Link>
+                        <div className='dot'></div>
+                    </div>
+                    
+                    <FontAwesomeIcon icon={faCartShopping} className='icon' />  
+                        
+                                
                 </div>
             </div>
 
             <div className='image'>
-                <img src="./image 5.png" className='img1' />
+                <img src="./image 5.png" className='img2' />
             </div>
            </div>
     )
