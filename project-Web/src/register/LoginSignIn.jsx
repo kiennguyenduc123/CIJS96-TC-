@@ -43,7 +43,7 @@ const LoginSignIn = () => {
             alert('Của bạn đã đăng nhập thành công xin mời bạn đến với trang chủ');
             setInterval(() => {
                 navigate('/');
-            }, 2000);
+            }, 1000);
         } else {
             alert('Email hoặc mật khẩu không đúng');
         }

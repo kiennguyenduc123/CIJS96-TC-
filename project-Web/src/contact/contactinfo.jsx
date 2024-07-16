@@ -76,7 +76,7 @@ const Contactinfo = () => {
       </div>
 
       <div className='contenth'>
-          <h1 className='content_a'><Link to="/" target='_blank' style={{textDecoration: "none", color: "black",opacity: "90%"}}>Trang Chủ</Link></h1>
+          <h1 className='content_a'><Link to="/"  style={{textDecoration: "none", color: "black",opacity: "90%"}}>Trang Chủ</Link></h1>
           <div className='content-main'>
             <div className='content-a'>
               <h1>Về Chúng Tôi</h1>

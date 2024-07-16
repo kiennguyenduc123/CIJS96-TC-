@@ -33,3 +33,18 @@
     text-align: center;
 
 }
+
+.add-remove-container {
+    position: relative;
+}
+
+.add-remove-container .add {
+    width: 35px;
+    position: absolute;
+    bottom:15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+

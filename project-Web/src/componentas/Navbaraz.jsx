@@ -17,17 +17,33 @@ const Navbaraz = (props) => {
         setIsHovered(false);
     };
 
+    const [cartItems, setCartItems] = useState({});
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        
+        Object.keys(cartItems).forEach(itemId => {
+            const quantity = cartItems[itemId];
+            const iteminfo = productzh.find(product => product.id === itemId);
+            if (iteminfo && quantity > 0) {
+                totalAmount += iteminfo.price * quantity;
+            }
+        });
+    
+        return totalAmount;
+    };
+
     return (
            <div className='Web'> 
                  <div className='Navbar'>
                 <img src="./001.png" className='img' />
                 <div className='Navbar_name'>
                     <ul>
-                        <li className='color_li'>Home</li>
-                        <li><Link to="/men" target='_blank' style={{textDecoration: "none", color: "black"}}>Đồ Nam</Link></li>
-                        <li><Link to="/women" target='_blank' style={{textDecoration: "none", color: "black"}}>Đồ Nữ</Link></li>
-                        <li>Đồ Bé Trai</li>
-                        <li><Link to="/children" target='_blank' style={{textDecoration: "none", color: "black"}}>Đồ Bé Gái</Link></li>
+                    <li className='color_li'><Link to= "/" style={{textDecoration: "none"}}>Home</Link></li>
+                        <li><Link to="/men" style={{textDecoration: "none", color: "black"}}>Đồ Nam</Link></li>
+                        <li><Link to="/women"  style={{textDecoration: "none", color: "black"}}>Đồ Nữ</Link></li>
+                        <li><Link to="/childrenmen"  style={{textDecoration: "none", color: "black"}}>Đồ Bé Trai</Link></li>
+                        <li><Link to="/children"  style={{textDecoration: "none", color: "black"}}>Đồ Bé Gái</Link></li>
                     </ul>
                 </div>
                 <div className='input_nav'>
@@ -45,15 +61,15 @@ const Navbaraz = (props) => {
                         <FontAwesomeIcon icon={faCircleUser} className='icon' />
                         {isHovered && (
                             <div className="hover-options">
-                               <p><Link to="/Register" target='_blank'className='hover_pro'>Đăng nhập</Link></p>
-                               <p><Link to="/Login" target='_blank'className='hover_pro'>Đăng ký</Link></p>
+                               <p><Link to="/Register" className='hover_pro'>Đăng nhập</Link></p>
+                               <p><Link to="/Login" className='hover_pro'>Đăng ký</Link></p>
                             </div>
                         )}
                     </div>
-                    <Link to = "/google.html" target='_blank' style={{textDecoration: "none", color: "white"}}> <FontAwesomeIcon icon={faStore} className='icon' /></Link>
+                    <Link to = "/google.html"  style={{textDecoration: "none", color: "white"}}> <FontAwesomeIcon icon={faStore} className='icon' /></Link>
                     <div className='navbar-search-icon'>
-                        <FontAwesomeIcon icon={faBagShopping} className='icon' />
-                        <div className='dot'></div>
+                        <Link to="/cart"  style={{textDecoration: "none"}}><FontAwesomeIcon icon={faBagShopping} className='icon' /></Link>
+                        <div className={getTotalCartAmount() === 0 ? "dot" : ""}></div>
                     </div>
                     <FontAwesomeIcon icon={faCartShopping} className='icon' />                            
                 </div>

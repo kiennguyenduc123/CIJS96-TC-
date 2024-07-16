@@ -15,9 +15,11 @@
     display: flex;
     position: relative;
     top: 500px;
+    gap: 9px;
 }
 .products-a {
     width: calc(50% - 10px); 
+
 }
 
 .products-details {
@@ -27,9 +29,9 @@
 .products-a img {
     margin-top:-10px;
     width: 330px;
-    height: 460px;
+    height: auto;
     object-fit: cover;
-    padding: 10px;
+    padding: 12px;
 }
 
 
@@ -53,5 +55,7 @@
     background-color: red;
 
 }
+
+
 
 

@@ -13,18 +13,6 @@ const Introduce = () => {
     setSearch(e.target.value);
   }
 
-  //Filer Search
-  // const filteredProductsMen = productMen.filter((product) => {
-  //   product.name.toLowerCase().includes(search.toLowerCase())
-  // })
-
-  // const filteredProductsWomen = productWomen.filter((product) => {
-  //   product.name.toLowerCase().includes(search.toLowerCase())
-  // })
-
-  // const filteredProductsChildren = productChildren.filter((product) => {
-  //   product.name.toLowerCase().includes(search.toLowerCase())
-  // })
 
 
   return (

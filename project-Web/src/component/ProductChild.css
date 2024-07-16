@@ -12,18 +12,17 @@
 
 .productss-a {
     display: flex;
-   
+    gap: 9px;
 }
 
 .products-as {
     width: calc(50% - 10px);
-    height: 400px;
 }
 
 .products-as img{
     margin-top:-20px;
     width: 330px;
-    height: 476px;
+    height: auto;
     object-fit: cover;
     padding: 10px;
 }
@@ -72,12 +71,18 @@
 
 .product-item-counter {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 12px;
+    right: 2px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding: 6px;
     border-radius: 50%;
     background-color: #B0ABAA;
+}
+
+
+.price-filter {
+    position: absolute;
+    
 }

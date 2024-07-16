@@ -13,24 +13,44 @@ const ProductWomen = (props) => {
 
     const [cartItems, setCartItems] = useState({});
 
-    const addToCart = (itemId) => {
-        if (!cartItems[itemId]) {
-            setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
-        } else {
-            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-        }
-    };
-
     useEffect(() => {
-        console.log(cartItems)
+        const storedCartItems = localStorage.getItem('cartItems');
+        if (storedCartItems) {
+            setCartItems(JSON.parse(storedCartItems));
+        }
+    }, []);
 
-    },[cartItems])
-
+    const addToCart = (itemId) => {
+        const updatedCartItems = { ...cartItems };
+    
+        if (!updatedCartItems[itemId]) {
+            updatedCartItems[itemId] = 1;
+        } else {
+            updatedCartItems[itemId]++;
+        }
+    
+        setCartItems(updatedCartItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    };
     const removeFromCart = (itemId) => {
-        if (cartItems[itemId] > 0) {
-            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+        const updatedCartItems = { ...cartItems };
+    
+        if (updatedCartItems[itemId] > 0) {
+            updatedCartItems[itemId]--;
+            
+            if (updatedCartItems[itemId] === 0) {
+                delete updatedCartItems[itemId];
+            }
+            
+            setCartItems(updatedCartItems);
+            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
         }
     };
+
+
+    const filteredProductsChildren = products.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     return ( 
         <div className='product_lists'>
@@ -54,7 +74,7 @@ const ProductWomen = (props) => {
                                                 </div>
                                          )}
                                 </div>
-                                <button className="add-to-modal-btn" onClick={(e) => e.stopPropagation()}>
+                                <button className="add-to-modal-btn" >
                                     Add modal
                                 </button>
                             </div>

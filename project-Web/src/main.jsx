@@ -15,6 +15,7 @@ import LoginSignUp from './register/LoginSignUp.jsx'
 import LoginSignIn from './register/LoginSignIn.jsx'
 import Cart from './Cart/Cart.jsx'
 import { StoreContextProvider } from './context/StoreContext.jsx'
+import Placeholder from './Order/placeholder.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
    <StoreContextProvider>
@@ -31,6 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/login' element = {<LoginSignIn/>}/>
       <Route path='register' element = {<LoginSignUp />}/>
       <Route path='/cart' element={<Cart />}/>
+      <Route path = '/order' element={<Placeholder />} />
     </Routes>
     </StoreContextProvider>
   </BrowserRouter>

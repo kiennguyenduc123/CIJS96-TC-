@@ -29,15 +29,32 @@ const ProductChild = (props) => {
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
     
+
+    // const removeFromCart = (itemId) => {
+    //     // Sao chép object cartItems hiện tại
+    //     const updatedCartItems = { ...cartItems };
+
+    //     // Xoá itemId khỏi updatedCartItems
+    //     delete updatedCartItems[itemId];
+
+    //     // Cập nhật state và localStorage
+    //     setCartItems(updatedCartItems);
+    //     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    // };
+
     const removeFromCart = (itemId) => {
         const updatedCartItems = { ...cartItems };
     
         if (updatedCartItems[itemId] > 0) {
             updatedCartItems[itemId]--;
+            
+            if (updatedCartItems[itemId] === 0) {
+                delete updatedCartItems[itemId];
+            }
+            
+            setCartItems(updatedCartItems);
+            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
         }
-    
-        setCartItems(updatedCartItems);
-        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
 
     const filteredProductsChildren = products.filter((product) =>
@@ -67,7 +84,7 @@ const ProductChild = (props) => {
                                         </div>
                                     )}
                                 </div>
-                                <button className="add-to-modal-btn" onClick={(e) => e.stopPropagation()}>
+                                <button className="add-to-modal-btn" >
                                     Add modal
                                 </button>
                             </div>
